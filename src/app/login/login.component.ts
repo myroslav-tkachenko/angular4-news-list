@@ -19,8 +19,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginService.login();
-    this.router.navigate(['/']);
+    this.loginService.login('myroslav.tkachenko@gmail.com', 'M171078')
+      .then(() => {
+        this.router.navigate(['/']);
+      });
   }
 
   logout() {

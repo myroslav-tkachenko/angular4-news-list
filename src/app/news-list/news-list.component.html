@@ -1,3 +1,9 @@
+<header *ngIf="user">
+  {{ user.email }}
+</header>
+
 <p>
   news-list works!
 </p>
+
+<button (click)="printUser()">who is here?</button>

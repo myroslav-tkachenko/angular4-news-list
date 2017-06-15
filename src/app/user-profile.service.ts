@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UserProfileService {
-  private currentUser: any = null;
+  private currentUser;
 
   constructor() { }
 

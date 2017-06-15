@@ -4,8 +4,6 @@ import { UserProfileService } from './user-profile.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
-import 'rxjs/add/operator/map';
-
 @Injectable()
 export class LoginService {
   constructor(

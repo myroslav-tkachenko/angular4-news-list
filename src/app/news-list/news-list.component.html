@@ -6,4 +6,14 @@
   news-list works!
 </p>
 
+<ul>
+  <li class="text" *ngFor="let item of news | async">
+    {{item.title}}
+    {{item.text}}
+    {{item.author}}
+  </li>
+</ul>
+
 <button (click)="printUser()">who is here?</button>
+
+<button (click)="addNews()">ADD NEWS</button>

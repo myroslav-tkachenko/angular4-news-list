@@ -1,0 +1,12 @@
+<p>
+  login works!
+</p>
+
+<div *ngIf="isLogged">
+  <button (click)="logout()">Logout</button>
+</div>
+
+<div *ngIf="!isLogged">
+  <button (click)="login()">Login</button>
+</div>
+

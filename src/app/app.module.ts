@@ -8,6 +8,11 @@ import { AppComponent } from './app.component';
 import { NewsListComponent } from './news-list/news-list.component';
 import { LoginComponent } from './login/login.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+
 import { UserProfileService } from './user-profile.service';
 import { LoginService } from './login.service';
 import { AuthGuard } from './auth.guard';
@@ -31,7 +36,10 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   exports: [
     RouterModule

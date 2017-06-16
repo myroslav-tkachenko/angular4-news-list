@@ -6,6 +6,19 @@
   news-list works!
 </p>
 
+<div>
+  <h3>Add news item:</h3>
+  <div>
+    <label for="title">Title</label>
+    <input type="text" name="title" #titleInput>
+  </div>
+  <div>
+    <label for="text">Title</label>
+    <textarea name="text" #textInput></textarea>
+  </div>
+  <button (click)="addNews(titleInput, textInput)">ADD NEWS</button>
+</div>
+
 <ul>
   <li class="text" *ngFor="let item of news | async">
     {{item.title}}
@@ -16,4 +29,3 @@
 
 <button (click)="printUser()">who is here?</button>
 
-<button (click)="addNews()">ADD NEWS</button>

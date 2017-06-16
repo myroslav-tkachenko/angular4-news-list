@@ -5,6 +5,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { UserProfileService } from '../user-profile.service';
 import { LoginService } from '../login.service';
 
+import { News } from '../models/news';
+
 @Component({
   selector: 'app-news-list',
   templateUrl: './news-list.component.html',
@@ -17,24 +19,25 @@ export class NewsListComponent implements OnInit {
   constructor(
     private userProfileService: UserProfileService,
     private loginService: LoginService,
-    private db: AngularFireDatabase) {
-      this.news = db.list('/news');
-    }
+    private db: AngularFireDatabase) { }
 
   ngOnInit() {
     this.user = this.userProfileService.getUser();
+    this.news = this.db.list('/news');
   }
 
   printUser() {
     console.log(this.user.email);
   }
 
-  addNews() {
+  addNews(titleInput: HTMLInputElement, textInput: HTMLInputElement) {
     this.news.push({
-      title: 'MY NEWS',
-      text: 'Hello, here is the news',
-      // author: this.user.email
+      title: titleInput.value,
+      text: textInput.value,
+      author: this.user.email
     });
+    titleInput.value = '';
+    textInput.value = '';
   }
 
 }

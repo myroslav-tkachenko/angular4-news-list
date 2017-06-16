@@ -2,11 +2,11 @@
   login works!
 </p>
 
-<div *ngIf="isLogged">
+<div *ngIf="user">
   <button (click)="logout()">Logout</button>
 </div>
 
-<div *ngIf="!isLogged">
+<div *ngIf="!user">
   <button (click)="login()">Login</button>
 </div>
 

@@ -25,6 +25,8 @@ export class NewsListComponent implements OnInit {
   }
 
   addNews(titleInput: HTMLInputElement, textInput: HTMLInputElement) {
+    if (! (titleInput.value && textInput.value) ) return;
+
     this.news.push({
       title: titleInput.value,
       text: textInput.value,

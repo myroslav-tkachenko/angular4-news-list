@@ -1,0 +1,10 @@
+<div class="ui fixed inverted menu">
+  <div *ngIf="user" class="right menu">
+    <div class="item">
+      {{user.email}}
+    </div>
+    <a class="ui item" (click)="logout()">
+      Logout
+    </a>
+  </div>
+</div>

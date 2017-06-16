@@ -1,22 +1,20 @@
-<div *ngIf="user">
-  <button (click)="logout()">Logout</button>
-</div>
+<div class="ui main text container centered" style="padding: 10em 0;">
+  <div *ngIf="!user">
+    <form class="ui large form segment">
+      <h3 class="ui header">Login</h3>
 
-<div *ngIf="!user">
-  <form class="ui large form segment">
-    <h3 class="ui header">Login</h3>
+      <div class="field" [class.error]="wrongLogin">
+        <label for="title">Email:</label>
+        <input type="text" name="email" #email>
+      </div>
+      <div class="field" [class.error]="wrongLogin">
+        <label for="link">Password:</label>
+        <input type="password" name="password" #password>
+      </div>
 
-    <div class="field" [class.error]="wrongLogin">
-      <label for="title">Email:</label>
-      <input type="text" name="email" #email>
-    </div>
-    <div class="field" [class.error]="wrongLogin">
-      <label for="link">Password:</label>
-      <input type="password" name="password" #password>
-    </div>
-
-    <button (click)="login(email, password)" class="ui positive button">
-      Login
-    </button>
-  </form>
+      <button (click)="login(email, password)" class="ui positive button">
+        Login
+      </button>
+    </form>
+  </div>
 </div>

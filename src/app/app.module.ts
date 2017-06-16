@@ -17,11 +17,11 @@ import { UserProfileService } from './user-profile.service';
 import { LoginService } from './login.service';
 import { AuthGuard } from './auth.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: NewsListComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LoginComponent },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ]
 
@@ -30,7 +30,8 @@ const routes: Routes = [
     AppComponent,
     NewsListComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

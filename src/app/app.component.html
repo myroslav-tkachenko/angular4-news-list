@@ -1,12 +1,27 @@
+<div class="ui secondary  menu">
+  <a class="active item">
+    Home
+  </a>
+  <a class="item">
+    Messages
+  </a>
+  <div class="right menu">
+    <a class="item">
+      {{user}}
+    </a>
+    <a class="ui item">
+      Logout
+    </a>
+  </div>
+</div>
+
 <nav>
   <ul>
     <li><a href="" [routerLink]="['']">Home</a></li>
-    <li><a href="" [routerLink]="['/login']">Login</a></li>
-    <li><a href="" [routerLink]="['/logout']">Logout</a></li>
+    <li><a href="" (click)="logout()">Logout</a></li>
   </ul>
 </nav>
 
-<h1>
-  {{title}}
-</h1>
-<router-outlet></router-outlet>
+<div class="ui main text container">
+  <router-outlet></router-outlet>
+</div>

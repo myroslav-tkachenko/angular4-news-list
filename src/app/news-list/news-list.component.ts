@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 import { UserProfileService } from '../user-profile.service';
-import { LoginService } from '../login.service';
 
 import { News } from '../models/news';
 
@@ -18,16 +17,11 @@ export class NewsListComponent implements OnInit {
 
   constructor(
     private userProfileService: UserProfileService,
-    private loginService: LoginService,
     private db: AngularFireDatabase) { }
 
   ngOnInit() {
     this.user = this.userProfileService.getUser();
     this.news = this.db.list('/news');
-  }
-
-  printUser() {
-    console.log(this.user.email);
   }
 
   addNews(titleInput: HTMLInputElement, textInput: HTMLInputElement) {

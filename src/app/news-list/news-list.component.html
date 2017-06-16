@@ -1,24 +1,4 @@
-<header *ngIf="user">
-  {{ user.email }}
-</header>
-
-<p>
-  news-list works!
-</p>
-
-<div>
-  <h3>Add news item:</h3>
-  <div>
-    <label for="title">Title</label>
-    <input type="text" name="title" #titleInput>
-  </div>
-  <div>
-    <label for="text">Title</label>
-    <textarea name="text" #textInput></textarea>
-  </div>
-  <button (click)="addNews(titleInput, textInput)">ADD NEWS</button>
-</div>
-
+<h3>Current News:</h3>
 <ul>
   <li class="text" *ngFor="let item of news | async">
     {{item.title}}
@@ -27,5 +7,19 @@
   </li>
 </ul>
 
-<button (click)="printUser()">who is here?</button>
+<form class="ui large form segment">
+  <h3 class="ui header">Add news item:</h3>
 
+  <div class="field" [class.error]="wrongTitle">
+    <label for="title">Title</label>
+    <input type="text" name="title" #titleInput>
+  </div>
+  <div class="field" [class.error]="wrongText">
+    <label for="text">Title</label>
+    <textarea name="text" #textInput></textarea>
+  </div>
+
+  <button (click)="addNews(titleInput, textInput)" class="ui positive button">
+    Add item
+  </button>
+</form>

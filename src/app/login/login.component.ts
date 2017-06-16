@@ -12,27 +12,34 @@ import 'rxjs/Observable';
 })
 export class LoginComponent implements OnInit {
   public user;
+  public wrongLogin: boolean;
 
   constructor(
     private loginService: LoginService,
     private userProfileService: UserProfileService,
     private router: Router) {
       userProfileService.userChanged.subscribe((user) => {
-        this.user = this.userProfileService.getUser();
-        if (this.user) {
+        if (this.user = this.userProfileService.getUser()) {
           this.router.navigate(['/']);
+          return;
         }
         this.router.navigate(['/login']);
       });
     }
 
   ngOnInit() {
+    this.user = this.userProfileService.getUser();
   }
 
-  login() {
-    this.loginService.login('myroslav.tkachenko@gmail.com', 'M171078')
+  login(email: HTMLInputElement, password: HTMLInputElement) {
+    this.loginService.login(email.value, password.value)
       .then(() => {
+        console.log('logged');
         this.router.navigate(['/']);
+      })
+      .catch((err) => {
+        this.wrongLogin = true;
+        console.log(err);
       });
   }
 

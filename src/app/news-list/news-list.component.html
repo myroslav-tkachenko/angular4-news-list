@@ -1,5 +1,8 @@
 <div class="ui main" style="padding: 4em; 0">
   <h3>Current News:</h3>
+
+  <div class="ui divider"></div>
+
   <div class="ui grid">
     <div class="four wide column" *ngFor="let item of news | async">
       <div class="ui segment raised">
@@ -10,9 +13,11 @@
       </div>
     </div>
   </div>
+
+  <div class="ui divider"></div>
+
 </div>
 
-<div class="ui divider"></div>
 
 <div class="ui main text container">
   <form class="ui large form segment">

@@ -18,6 +18,7 @@ import { LoginService } from './login.service';
 import { AuthGuard } from './auth.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { OnlineIndicatorComponent } from './online-indicator/online-indicator.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: NewsListComponent, canActivate: [AuthGuard] },
@@ -31,7 +32,8 @@ const routes: Routes = [
     NewsListComponent,
     LoginComponent,
     PageNotFoundComponent,
-    NavigationComponent
+    NavigationComponent,
+    OnlineIndicatorComponent
   ],
   imports: [
     BrowserModule,

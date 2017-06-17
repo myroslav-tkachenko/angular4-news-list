@@ -1,0 +1,39 @@
+<div class="ui main" style="padding: 4em; 0">
+  <h3>Current News:</h3>
+
+  <div class="ui divider"></div>
+
+  <div class="ui grid">
+    <div class="four wide column" *ngFor="let item of news | async">
+      <div class="ui segment raised">
+        <h5>{{item.title}}</h5>
+        <p><small>{{item.author}}</small></p>
+        <div class="ui divider"></div>
+        <p>{{item.text}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui divider"></div>
+
+</div>
+
+
+<div class="ui main text container">
+  <form class="ui large form segment">
+    <h3 class="ui header">Add news item:</h3>
+
+    <div class="field">
+      <label for="title">Title</label>
+      <input type="text" name="title" #titleInput>
+    </div>
+    <div class="field">
+      <label for="text">Text</label>
+      <textarea name="text" #textInput></textarea>
+    </div>
+
+    <button (click)="addNews(titleInput, textInput)" class="ui positive button">
+      Add item
+    </button>
+  </form>
+</div>

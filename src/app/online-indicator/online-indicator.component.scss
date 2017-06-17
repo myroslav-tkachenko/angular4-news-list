@@ -1,0 +1,7 @@
+#onlineIndicator {
+  font-weight: bold;
+  // color: red;
+  &.online {
+    color: green;
+  }
+}
